@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Parser\AIT::class,
+        Commands\Parser\CCU::class,
+
     ];
 
     /**
