@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use PHPHtmlParser\Dom;
 use App\Services\Connector;
 use App\autoload;
+use App\ccumodel;
 
 class CCU extends Command
 {
@@ -40,10 +41,11 @@ class CCU extends Command
      */
     public function handle()
     {
-        $this->getCCUTitle();
+        $this-> getCCU();
+        $this->getCCUTitle();        
     }
     public function insert($data){
-        
+        var_dump ($data);
         $rules=[
             'CATEGORY'=>'required|max:20',
             'TITLE'=>'required|max:200',
@@ -51,6 +53,8 @@ class CCU extends Command
             'DATE'=>'required',
             'DISPLAY'=>'required',
         ];
+
+        ccumodel::create($data);
         
     }
 
@@ -127,8 +131,9 @@ class CCU extends Command
         
         $data = array();
         $data [0] = array( "CATEGORY" => 'CCU', "TITLE" =>$title[1][0],  "CONTENT" => $content_replace, "DATE" =>$time,'DISPLAY' => '0');
-        echo json_encode($data, JSON_UNESCAPED_UNICODE);
-        
+        //$data [0] = array( "CATEGORY" => 'CCU', "TITLE" =>'aaa',  "CONTENT" => 'bbbb', "DATE" =>'bbb','DISPLAY' => '0');
+        //echo json_encode($data, JSON_UNESCAPED_UNICODE);
+     
         $this ->  insert($data);
     }
 }

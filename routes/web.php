@@ -13,6 +13,4 @@
 
 Route::get('/', function () { return view('welcome');});
 
-Route::get('/ccu','CCU_controller@getCCUTitle');
-Route::get('/test','CCU_controller@test');
 

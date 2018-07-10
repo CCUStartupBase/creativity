@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CCU extends Model
+class ccumodel extends Model
 {
     //
     protected $table = 'news_copy';
