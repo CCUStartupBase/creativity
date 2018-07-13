@@ -18,10 +18,12 @@ class CreateNewsTable extends Migration
             $table->string('title', 50);
             $table->longText('content');
             $table->string('source', 20);
-            $table->string('source_url', 100)->nullable();
+            $table->string('source_url', 100)->nullable()->unique();
             $table->boolean('visibled')->default(false);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
