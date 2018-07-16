@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSignupTable extends Migration
+class CreateSignUpTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSignupTable extends Migration
      */
     public function up()
     {
-        Schema::create('signup', function (Blueprint $table) {
+        Schema::create('sign_up', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('event_id');
             $table->string('name', 20);
             $table->integer('student_id');
             $table->string('department', 20);
+
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +32,6 @@ class CreateSignupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signup');
+        Schema::dropIfExists('sign_up');
     }
 }
